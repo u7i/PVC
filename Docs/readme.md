@@ -6,34 +6,34 @@ Note that you can manage players that was created before OSD shown
 
 All doxygen documentation are stored in **Docs** folder
 
-##How to install:
+## How to install:
 TODO: Create guide for debian/ubuntu
 
-##Usage
+## Usage
 ```shell
 ./PVC.sh help
 ./PVC.sh install {Name of plasma theme}
 ./PVC.sh remove {Name of plasma theme}
 ```
 
-##Modules:
+## Modules:
   * Include - Public headers directory
   * Core ( DBus, players control system etc)
   * Widgets ( Standalone controller widget )
   * sh scripts ( Installer/Uninstaller, Make )
   * qml ( Injectable qml widget )
 
-##Dependencies:
+## Dependencies:
   * KDE Plasma
   * make
   * Qt5 
 
-##Cmake targets
+## Cmake targets
   * Library (everything under Src/ dir)
   * Tests (everything under Tests/ folder, contains standalone test and example qml application)
 
-##Tested on:
+## Tested on:
   * Debian 10
 
-###Links:
+### Links:
 https://specifications.freedesktop.org/mpris-spec/latest/
