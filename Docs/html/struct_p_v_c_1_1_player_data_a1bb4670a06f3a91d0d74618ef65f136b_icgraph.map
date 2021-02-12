@@ -1,0 +1,4 @@
+<map id="PVC::PlayerData::isActive" name="PVC::PlayerData::isActive">
+<area shape="rect" id="node1" title="Check does player is active ( PlaybackStatus == Playing | Paused )" alt="" coords="208,13,396,39"/>
+<area shape="rect" id="node2" href="$class_p_v_c_1_1_player_manager.html#afd5bd83c416c1d06c447ea5f3111b8a3" title=" " alt="" coords="5,5,160,47"/>
+</map>
