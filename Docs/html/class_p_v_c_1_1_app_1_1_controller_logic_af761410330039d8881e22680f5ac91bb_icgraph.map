@@ -1,0 +1,4 @@
+<map id="PVC::App::ControllerLogic::currentPlayerUpdated" name="PVC::App::ControllerLogic::currentPlayerUpdated">
+<area shape="rect" id="node1" title="Signal that fire when current player changed." alt="" coords="216,5,403,47"/>
+<area shape="rect" id="node2" href="$class_p_v_c_1_1_app_1_1_standalone.html#ab9703c27a3fd1aefe4b9f3575a017b7c" title=" " alt="" coords="5,5,168,47"/>
+</map>

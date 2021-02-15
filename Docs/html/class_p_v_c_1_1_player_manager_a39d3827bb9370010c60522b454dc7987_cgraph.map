@@ -1,0 +1,4 @@
+<map id="PVC::PlayerManager::init" name="PVC::PlayerManager::init">
+<area shape="rect" id="node1" title="Init or reInit manager." alt="" coords="5,5,160,47"/>
+<area shape="rect" id="node2" href="$class_p_v_c_1_1_d_bus_utils.html#a78c736774c30891f23b88cc36ac7a272" title="Recursive get all dbus objects that contains service name." alt="" coords="208,5,407,47"/>
+</map>

@@ -9,7 +9,6 @@ PVC::App::ControllerLogic::ControllerLogic(bool lateInit) {
 }
 
 void PVC::App::ControllerLogic::init() {
-    qDebug() << "ControllerLogic: Start initializing"; // TODO: Debug
     this->manager = new PlayerManager();
     connect(this->manager, &PlayerManager::onPlayerChanged, this, &ControllerLogic::onChangedSlot);
 
