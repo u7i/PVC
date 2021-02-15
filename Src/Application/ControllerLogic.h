@@ -12,11 +12,14 @@ namespace PVC::App {
      * \brief "Action" button states
      */
     namespace ActionButtonState{
+        Q_NAMESPACE
+
         enum Value {
             DoPlay = 0, ///< Current player is currently in pause state. Play it after button will be clicked
             DoPause = 1, ///< Current player is currently playing. Pause it onclick
             None = -1 ///< There are no current player
         };
+        Q_ENUM_NS(Value)
     }
 
     /**
@@ -47,42 +50,47 @@ namespace PVC::App {
          * \brief Get current player song title
          * If current player is none returns NonePlayerSongTitle string ( Constants.h )
          */
-        [[nodiscard]] QString getCurrentPlayerSongTitle() const;
+        [[nodiscard]] Q_INVOKABLE QString getCurrentPlayerSongTitle() const;
 
         /**
          * \brief Get current player user-friendly name
          * If current player is none returns NonePlayerName string ( Constants.h )
          */
-        [[nodiscard]] QString getCurrentPlayerName() const;
+        [[nodiscard]] Q_INVOKABLE QString getCurrentPlayerName() const;
 
         /**
          * \brief Get action button state
-         * @return Return state of play button
+         * @return Return state of play button. States of the ActionButtonState enum
          */
-        [[nodiscard]] ActionButtonState::Value getActionButtonState() const;
+        [[nodiscard]] Q_INVOKABLE int getActionButtonState() const;
 
         /**
          * \brief Get enable state of the next button
          * @return Is the next button enabled
          */
-        [[nodiscard]] bool isNextButtonEnabled() const;
+        [[nodiscard]] Q_INVOKABLE bool isNextButtonEnabled() const;
 
         /**
          * \brief Get the longest ( at the current moment of the time ) title from the available players list
          * @return The longest available player song title
          */
-        [[nodiscard]] QString getAvailablePlayersLongestSongTitle() const;
+        [[nodiscard]] Q_INVOKABLE QString getAvailablePlayersLongestSongTitle() const;
 
         /**
          * \brief Get the longest ( at the current moment of the time ) player name from the available players list
          * @return The longest player name ( from the available players list )
          */
-        [[nodiscard]] QString getAvailablePlayersLongestPlayerName() const;
-    signals:
+        [[nodiscard]] Q_INVOKABLE QString getAvailablePlayersLongestPlayerName() const;
+
+        /**
+         * \brief Get the longest string from available song titles or player names ( depends on whats is longer )
+         */
+        [[nodiscard]] Q_INVOKABLE QString getLongestStringFromAvailable() const;
+    Q_SIGNALS:
         /**
          * \brief Signal that fire when current player changed
          */
-        void onCurrentPlayerUpdated();
+        void currentPlayerUpdated();
 
     public slots:
         /**

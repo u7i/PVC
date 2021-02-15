@@ -1,5 +1,0 @@
-<map id="PVC::DBusUtils::callFunction" name="PVC::DBusUtils::callFunction">
-<area shape="rect" id="node1" title="Call DBUS interface method." alt="" coords="197,31,404,57"/>
-<area shape="rect" id="node2" href="$class_p_v_c_1_1_player.html#ab18f0ebfa9c5488655dc9e060bf87d65" title="Try to pause player." alt="" coords="5,5,149,32"/>
-<area shape="rect" id="node3" href="$class_p_v_c_1_1_player.html#a91193abdf1567c06d6ba0976ff248ea4" title="Try to resume/start player." alt="" coords="11,56,144,83"/>
-</map>

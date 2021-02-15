@@ -1,4 +1,0 @@
-<map id="PVC::Player::play" name="PVC::Player::play">
-<area shape="rect" id="node1" title="Try to resume/start player." alt="" coords="5,5,139,32"/>
-<area shape="rect" id="node2" href="$class_p_v_c_1_1_d_bus_utils.html#ae4d6a76a7c5ef6778347be715f8b9310" title="Call DBUS interface method." alt="" coords="187,5,393,32"/>
-</map>

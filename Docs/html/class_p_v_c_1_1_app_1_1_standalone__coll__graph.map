@@ -1,7 +1,0 @@
-<map id="PVC::App::Standalone" name="PVC::App::Standalone">
-<area shape="rect" id="node1" title="Widget that allows to control all media players in system." alt="" coords="5,260,168,287"/>
-<area shape="rect" id="node2" title=" " alt="" coords="26,171,105,197"/>
-<area shape="rect" id="node3" href="$class_p_v_c_1_1_app_1_1_controller_logic.html" title="Base logic for player controller application." alt="" coords="129,171,316,197"/>
-<area shape="rect" id="node4" title=" " alt="" coords="161,5,236,32"/>
-<area shape="rect" id="node5" href="$class_p_v_c_1_1_player_manager.html" title="Widget that provides API for simple access to all MPRIS players in the system." alt="" coords="220,81,375,108"/>
-</map>

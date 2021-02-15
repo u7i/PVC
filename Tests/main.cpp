@@ -1,11 +1,8 @@
 #include <QApplication>
-#include <QPushButton>
-
+#include <QQmlApplicationEngine>
 #include <QQuickView>
-#include <QQmlEngine>
 
 #include "../Src/Widgets/Standalone.h"
-#include <iostream>
 
 int main(int argc, char *argv[]) {
     // Setup flags
@@ -14,15 +11,13 @@ int main(int argc, char *argv[]) {
 
     QApplication a(argc, argv);
 
-    /*QQuickView View;
-    View.setSource(QUrl("qrc:/Test.qml"));
-    View.show(); */
+    QQuickView view;
+    view.setSource(QUrl("qrc:/Test.qml"));
+    view.show();
 
-    //Standalone *standalone = new Standalone();
+    // UnComment tot use standalone
+    //auto *standalone = new PVC::App::Standalone();
     //standalone->show();
-
-    auto *s = new PVC::App::Standalone();
-    s->show();
 
     return QApplication::exec();
 }

@@ -1,2 +1,3 @@
 module org.u7i.PVC
+QmlPlaybackWidget 0.1 QmlPlaybackWidget.qml
 plugin PVC

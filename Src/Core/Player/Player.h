@@ -36,9 +36,12 @@ namespace PVC{
          *
          * @param service Name of MPRIS service ( with full path ex: org.mpris.Player2.vlc )
          * @param connection DBus connection
-         * @param Output Parsed Player
+         * @param Output Parsed player
          */
         void parsePlayer() {
+            // Reset current data
+            this->data = PlayerData(this->data.serviceName);
+
             // Get current playback status
             QVariant V = DBusUtils::getProperty("PlaybackStatus",
                                                 Constants::MPRIS_PlayerInterface,
@@ -102,7 +105,7 @@ namespace PVC{
             this->data.bCanPause = DBusUtils::getProperty("CanPause", Constants::MPRIS_PlayerInterface,
                                                           *this->resolveIFace).toBool();
 
-            // Friendly player name ( for example VLC Player Player )
+            // Friendly player name ( for example VLC Media Player )
             this->data.playerName = DBusUtils::getProperty("Identity", Constants::MPRIS_Service,
                                                            *this->resolveIFace).toString();
         }

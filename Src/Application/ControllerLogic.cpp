@@ -9,6 +9,7 @@ PVC::App::ControllerLogic::ControllerLogic(bool lateInit) {
 }
 
 void PVC::App::ControllerLogic::init() {
+    qDebug() << "ControllerLogic: Start initializing"; // TODO: Debug
     this->manager = new PlayerManager();
     connect(this->manager, &PlayerManager::onPlayerChanged, this, &ControllerLogic::onChangedSlot);
 
@@ -29,7 +30,7 @@ QString PVC::App::ControllerLogic::getCurrentPlayerName() const {
     return this->getAvailablePlayerByIndex(this->currentIndex)->getData().playerName;
 }
 
-PVC::App::ActionButtonState::Value PVC::App::ControllerLogic::getActionButtonState() const {
+int PVC::App::ControllerLogic::getActionButtonState() const {
     Player *current = this->getCurrentPlayer();
     if (!current) return ActionButtonState::None;
 
@@ -45,7 +46,7 @@ PVC::App::ActionButtonState::Value PVC::App::ControllerLogic::getActionButtonSta
     }
 }
 bool PVC::App::ControllerLogic::isNextButtonEnabled() const {
-    return !this->manager->getAvailablePlayers().isEmpty();
+    return this->manager->getAvailablePlayers().size() > 1;
 }
 
 QString PVC::App::ControllerLogic::getAvailablePlayersLongestSongTitle() const {
@@ -69,6 +70,13 @@ QString PVC::App::ControllerLogic::getAvailablePlayersLongestPlayerName() const 
 
     if (!playerName.isEmpty()) return playerName;
     return Constants::NonePlayerName;
+}
+
+QString PVC::App::ControllerLogic::getLongestStringFromAvailable() const {
+    QString songTitle = this->getAvailablePlayersLongestSongTitle();
+    QString playerName = this->getAvailablePlayersLongestPlayerName();
+
+    return songTitle.length() > playerName.length() ? songTitle : playerName;
 }
 
 // Public slots
@@ -101,29 +109,31 @@ void PVC::App::ControllerLogic::nextButtonClicked() {
     }
 
     this->currentServiceName = this->getAvailablePlayerByIndex(this->currentIndex)->getData().serviceName;
-    this->onCurrentPlayerUpdated();
+    this->currentPlayerUpdated();
 }
 
 void PVC::App::ControllerLogic::selectNonePlayer() {
     this->currentIndex = -1;
     this->currentServiceName = "";
 
-    this->onCurrentPlayerUpdated();
+    this->currentPlayerUpdated();
 }
 
 // Private slots
 void PVC::App::ControllerLogic::onChangedSlot(Player *player, PlayerChangeType::Value type) {
-    if (player && player->getData().serviceName == this->currentServiceName){
-        this->onCurrentPlayerUpdated();
+    // list isn't broken, so let's just send update signal and do nothing more
+    if (!type.isAvailableListChanged) {
+        if (player && player->getData().serviceName == this->currentServiceName) {
+            this->currentPlayerUpdated();
+        }
+
         return;
     }
-
-    if (!type.isAvailableListChanged) return;
 
     for (int c = 0; c < this->manager->getAvailablePlayers().size(); ++c){
         if (this->getAvailablePlayerByIndex(c)->getData().serviceName == this->currentServiceName){
             this->currentIndex = c; // Just update index, service name is stay the same
-            this->onCurrentPlayerUpdated();
+            this->currentPlayerUpdated();
             return;
         }
     }
@@ -141,7 +151,7 @@ void PVC::App::ControllerLogic::selectPlayerFromAvailable() {
         this->currentIndex = index;
         this->currentServiceName = player->getData().serviceName;
 
-        this->onCurrentPlayerUpdated();
+        this->currentPlayerUpdated();
     };
 
     // Set priority to playing player, but if no players playing - we select the last

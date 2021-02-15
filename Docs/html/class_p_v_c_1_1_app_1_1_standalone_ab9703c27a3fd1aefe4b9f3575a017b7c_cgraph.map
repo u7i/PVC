@@ -1,6 +1,0 @@
-<map id="PVC::App::Standalone::Standalone" name="PVC::App::Standalone::Standalone">
-<area shape="rect" id="node1" title=" " alt="" coords="5,64,168,105"/>
-<area shape="rect" id="node2" href="$class_p_v_c_1_1_app_1_1_controller_logic.html#ae726c75165c34059fde810cf554f608b" title="Pause/Play current player." alt="" coords="216,5,403,47"/>
-<area shape="rect" id="node3" href="$class_p_v_c_1_1_utils.html#ad0593ebfe0b8df7d7c1f25434f87988c" title="Select the longest string from two." alt="" coords="238,71,381,98"/>
-<area shape="rect" id="node4" href="$class_p_v_c_1_1_app_1_1_controller_logic.html#a799b59c386d22141c28117008a8b662c" title="Select next available player." alt="" coords="216,123,403,164"/>
-</map>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.14.0, 2021-01-31T17:32:35. -->
+<!-- Written by QtCreator 4.14.0, 2021-02-12T23:07:28. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -415,7 +415,7 @@
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/u7i/Documents/build-PlasmaVolumeController-Desktop-Debug</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/tmp/QtCreator-FKFYli/qtc-cmake-SOnaFdun</value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">2</value>
   </valuemap>

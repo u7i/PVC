@@ -43,6 +43,9 @@ namespace PVC{
         //QIcon Icon; TODO: Add icon support
 
         PlayerData() = default;
+        PlayerData(const QString &serviceName){
+            this->serviceName = serviceName;
+        }
         PlayerData(bool canPlay, bool canPause,
                    const QString &serviceName, const QString &playerName,
                    const QString &title, const QString &artist, const QUrl &URL,

@@ -1,7 +1,7 @@
 PVC
 ======================
 
-This is widget that extends default Plasma OSD ( OnScreenDisplay ) sound volume widget and allows you to control your Player players (pause/play) from them
+This is widget that extends default Plasma OSD ( OnScreenDisplay ) sound volume widget and allows you to control your media players (pause/play) from them
 Note that you can manage players that was created before OSD shown
 
 All doxygen documentation are stored in **Docs** folder
@@ -11,17 +11,19 @@ TODO: Create guide for debian/ubuntu
 
 ## Usage
 ```shell
-./PVC.sh help
-./PVC.sh install {Name of plasma theme}
-./PVC.sh remove {Name of plasma theme}
+./PVC help
+./PVC install {Name of plasma theme}
+./PVC remove {Name of plasma theme}
 ```
 
 ## Modules:
-  * Include - Public headers directory
-  * Core ( DBus, players control system etc)
-  * Widgets ( Standalone controller widget )
-  * sh scripts ( Installer/Uninstaller, Make )
-  * qml ( Injectable qml widget )
+  * **Application** ( Application logic )
+  * **Include** ( Public headers directory )
+  * **Core** ( DBus, players control system etc)
+  * **Widgets** ( Standalone controller widget )
+  * **CLI** ( Installer/Uninstaller ( cpp that depends only on stdlib ), make script )
+  * **qml** ( Injectable qml widget, qml container for QPixmap, qml utils )
+  ***
 
 ## Dependencies:
   * KDE Plasma
@@ -29,8 +31,9 @@ TODO: Create guide for debian/ubuntu
   * Qt5 
 
 ## Cmake targets
-  * Library (everything under Src/ dir)
-  * Tests (everything under Tests/ folder, contains standalone test and example qml application)
+  * Library (everything under Src/ folder)
+  * Tests (everything under Tests/ folder, contains standalone test app 
+           and example qml application)
 
 ## Tested on:
   * Debian 10

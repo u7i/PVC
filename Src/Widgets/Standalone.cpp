@@ -54,29 +54,38 @@ PVC::App::Standalone::Standalone(QWidget *parent) {
     this->setParent(parent);
     this->createUI();
 
+    // Create metrics
+    this->metrics = new QFontMetrics(this->songTitleLabel->font());
+
     // Setup logic
     this->logic = new ControllerLogic(true);
 
     // Connect slots
-    connect(this->logic, &ControllerLogic::onCurrentPlayerUpdated, this, &Standalone::updateWidget);
+    connect(this->logic, &ControllerLogic::currentPlayerUpdated, this, &Standalone::updateWidget);
 
     connect(this->actionButton, &QPushButton::clicked, this->logic, &ControllerLogic::actionButtonClicked);
     connect(this->nextButton, &QPushButton::clicked, this->logic, &ControllerLogic::nextButtonClicked);
 
+    // Init logic
     this->logic->init();
 
     // Setup label width
-    QFontMetrics metrics(this->songTitleLabel->font());
-    QString str = Utils::longest(this->logic->getAvailablePlayersLongestSongTitle(),
-                                 this->logic->getAvailablePlayersLongestPlayerName());
-
-    this->songTitleLabel->setMinimumWidth(metrics.horizontalAdvance(str) + this->LabelMargins);
+    QString str = this->logic->getLongestStringFromAvailable();
+    this->songTitleLabel->setMinimumWidth(this->metrics->horizontalAdvance(str) + this->LabelMargins);
 }
 PVC::App::Standalone::~Standalone() = default;
 
 void PVC::App::Standalone::updateWidget() {
     // Update labels
     this->songTitleLabel->setText(this->logic->getCurrentPlayerSongTitle());
+
+    // Update size of label ( if needed )
+    int nWidth = this->metrics->horizontalAdvance(this->songTitleLabel->text()) + this->LabelMargins;
+    if (this->songTitleLabel->width() < nWidth){
+        qDebug() << "Standalone: songTitleLabel size updated";
+        this->songTitleLabel->setFixedWidth(nWidth);
+    }
+
     this->playerNameLabel->setText(this->logic->getCurrentPlayerName());
 
     // Update buttons

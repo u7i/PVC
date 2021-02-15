@@ -1,5 +1,0 @@
-<map id="PVC::PlayerManager::onPlayerChanged" name="PVC::PlayerManager::onPlayerChanged">
-<area shape="rect" id="node1" title="Signal that called when one of the players was changed." alt="" coords="475,5,629,47"/>
-<area shape="rect" id="node2" href="$class_p_v_c_1_1_app_1_1_controller_logic.html#a33767f727f1ebcf2abd15c7c6c60f6e9" title="Late init support." alt="" coords="240,5,427,47"/>
-<area shape="rect" id="node3" href="$class_p_v_c_1_1_app_1_1_controller_logic.html#a1f0bded566362e42c2396b40c5fb657b" title=" " alt="" coords="5,5,192,47"/>
-</map>

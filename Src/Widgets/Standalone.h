@@ -12,16 +12,15 @@
 #include <QStyle>
 
 #include "../Application/ControllerLogic.h"
-#include "../Application/Utils.h"
 
 #include <QDebug>
 
 namespace PVC::App {
-/**
- * \brief Widget that allows to control all media players in system
- * \author u7i
- * \version 0.1
- */
+    /**
+     * \brief Widget that allows to control all media players in system
+     * \author u7i
+     * \version 0.1
+     */
     class Standalone : public QWidget {
         Q_OBJECT
 
@@ -34,12 +33,13 @@ namespace PVC::App {
 
     private slots:
         /**
-         * \brief Connected to logic->onCurrentPlayerUpdated
+         * \brief Connected to logic->currentPlayerUpdated
          */
         void updateWidget();
 
     protected:
         ControllerLogic *logic;
+        QFontMetrics *metrics;
 
         // Widgets
         QHBoxLayout *mainLayout;

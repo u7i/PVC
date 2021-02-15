@@ -30,28 +30,37 @@ set(cppFiles Src/Widgets/Standalone.cpp
         Src/Core/DBusUtils.h
         Src/Core/Player/Player.h
         Src/Core/Constants.h
-        Src/Include/PVC.h Src/qml/PVC_Plugin.h
+        Src/Include/PVC.h
+        Src/qml/PVC_Plugin.h
         Src/Core/Player/PlayerManager.h
         Src/Core/Player/PlayerManager.cpp
         Src/Core/Player/PlayerData.h
-        Src/Application/ControllerLogic.cpp Src/Application/ControllerLogic.h Src/Application/Utils.h)
+        Src/Application/ControllerLogic.cpp
+        Src/Application/ControllerLogic.h
+        Src/qml/CustomModules/Utils.h
+        Src/qml/CustomModules/QmlPixmapViewer.h
+        Src/qml/CustomModules/QmlStyle.h)
 
 # Install cpp lib
 add_library(PVC SHARED ${cppFiles})
 
-set_target_properties(PVC PROPERTIES PUBLIC_HEADER "Src/Include/PVC.h")
+#set_target_properties(PVC PROPERTIES PUBLIC_HEADER "Src/Include/PVC.h")
 target_include_directories(PVC PRIVATE Src)
 
-install(TARGETS PVC LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(TARGETS PVC LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+
+# Install public header
+install(FILES Src/Include/PVC.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 configure_file(PVC.pc.in PVC.pc @ONLY)
 install(FILES ${CMAKE_BINARY_DIR}/PVC.pc DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig)
 
-# Install qml ( doesn't copy .h include to qml folder )
-#install(TARGETS PVC DESTINATION ${QML_INSTALL_DIR}/org/u7i/PVC)
+set(CMAKE_INSTALL_PREFIX /usr/lib/)
 
+# TODO: Replace paths
 install(TARGETS PVC DESTINATION x86_64-linux-gnu/qt5/qml/org/u7i/PVC)
 install(FILES Src/qml/qmldir DESTINATION x86_64-linux-gnu/qt5/qml/org/u7i/PVC)
+install(FILES Src/qml/QmlPlaybackWidget.qml DESTINATION x86_64-linux-gnu/qt5/qml/org/u7i/PVC)
 
 # Link qt libs
 target_link_libraries(PVC ${REQUIRED_LIBS_QUALIFIED})
